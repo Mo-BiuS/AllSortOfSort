@@ -1,0 +1,362 @@
+[gd_scene load_steps=11 format=3 uid="uid://dan4hkctcfda7"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_gmf65"]
+[ext_resource type="Script" path="res://SortList.gd" id="1_lmwsi"]
+[ext_resource type="Script" path="res://SortData.gd" id="1_vpu2g"]
+[ext_resource type="FontFile" uid="uid://bnx8unymcvcap" path="res://ressources/fonts/FSEX300.ttf" id="2_l3a58"]
+[ext_resource type="Script" path="res://ArrayArea.gd" id="2_q8c8y"]
+[ext_resource type="Script" path="res://NumberSelect.gd" id="5_cecu8"]
+[ext_resource type="Script" path="res://StartButton.gd" id="6_miq7w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_856yr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgkm7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1x7t"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_gmf65")
+
+[node name="Draw" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ArrayArea" type="ColorRect" parent="Draw"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 22.0
+offset_top = 16.0
+offset_right = 22.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(0.509804, 0.509804, 0.509804, 1)
+script = ExtResource("2_q8c8y")
+
+[node name="SortCanvas" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="SortCanvas"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 100.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="SortCanvas/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SortCanvas/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="SortData" type="VBoxContainer" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+script = ExtResource("1_vpu2g")
+
+[node name="title" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_font_sizes/font_size = 18
+text = "Tri a bulle"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+text = "Complexité"
+
+[node name="Label2" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+
+[node name="Label3" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+text = "Mieux"
+
+[node name="cBest" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+text = ": n"
+
+[node name="Label4" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+text = "Moyen"
+
+[node name="cMedium" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+text = ": n^2"
+
+[node name="Label5" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+text = "Pire"
+
+[node name="cWorst" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+text = ": n^2"
+
+[node name="Label6" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+text = "Mémoire"
+
+[node name="cMem" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+text = ": 1"
+
+[node name="Label7" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+text = "Stable"
+
+[node name="Stable" type="Label" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+text = ": Oui"
+
+[node name="PanelContainer2" type="PanelContainer" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer"]
+custom_minimum_size = Vector2(210, 160)
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="SortList" type="VBoxContainer" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+script = ExtResource("1_lmwsi")
+
+[node name="Introsort" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+toggle_mode = true
+text = "Introsort"
+
+[node name="Smoothsort" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Smoothsort"
+
+[node name="Timsort" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Timsort"
+
+[node name="TriBulle" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Tri à bulles"
+
+[node name="TriPeigne" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Tri à peigne"
+
+[node name="TriArborescent" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Tri arborescent"
+
+[node name="TriCockail" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Tri cocktail"
+
+[node name="TriShell" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Tri de Shell"
+
+[node name="TriFusion" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Tri fusion"
+
+[node name="TriPairImpair" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Tri pair-impair"
+
+[node name="TriInsertion" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Tri par insertion"
+
+[node name="TriSelection" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Tri par selection"
+
+[node name="TriTas" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Tri par tas"
+
+[node name="TriRapide" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
+text = "Tri rapide"
+
+[node name="InputCanvas" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InputCanvas"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -331.0
+offset_top = -75.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="InputCanvas/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="InputCanvas/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="StartButton" type="Button" parent="InputCanvas/VBoxContainer/PanelContainer2/MarginContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sgkm7")
+text = "Start"
+script = ExtResource("6_miq7w")
+
+[node name="PanelContainer3" type="PanelContainer" parent="InputCanvas/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="InputCanvas/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InputCanvas/VBoxContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="clear" type="Button" parent="InputCanvas/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sgkm7")
+text = "Clear"
+
+[node name="fillRandom" type="Button" parent="InputCanvas/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sgkm7")
+text = "Fill Random"
+
+[node name="scrambleData" type="Button" parent="InputCanvas/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s1x7t")
+text = "Scramble data"
+
+[node name="PanelContainer" type="PanelContainer" parent="InputCanvas/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="InputCanvas/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InputCanvas/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 4
+
+[node name="NumberSelect" type="SpinBox" parent="InputCanvas/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+min_value = -99.0
+max_value = 99.0
+alignment = 1
+script = ExtResource("5_cecu8")
+
+[node name="Random" type="Button" parent="InputCanvas/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s1x7t")
+text = "Random"
+
+[node name="addNumber" type="Button" parent="InputCanvas/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l3a58")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s1x7t")
+text = "Add Number"
+
+[connection signal="sortSelected" from="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList" to="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/SortData" method="_on_sort_list_sort_selected"]
+[connection signal="pressed" from="InputCanvas/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer/clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="InputCanvas/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer/fillRandom" to="." method="_on_fill_random_pressed"]
+[connection signal="pressed" from="InputCanvas/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer/scrambleData" to="." method="_on_scramble_data_pressed"]
+[connection signal="addNumber" from="InputCanvas/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/NumberSelect" to="." method="_on_number_select_add_number"]
+[connection signal="pressed" from="InputCanvas/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/Random" to="InputCanvas/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/NumberSelect" method="_on_random_pressed"]
+[connection signal="pressed" from="InputCanvas/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/addNumber" to="InputCanvas/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/NumberSelect" method="_on_add_number_pressed"]
