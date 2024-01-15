@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://h6044u63vvp2"]
+
+[ext_resource type="Script" path="res://src/item/ArrayArea.gd" id="1_p6yfe"]
+
+[node name="ArrayArea" type="ColorRect"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 22.0
+offset_top = 16.0
+offset_right = 22.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(0.509804, 0.509804, 0.509804, 1)
+script = ExtResource("1_p6yfe")
