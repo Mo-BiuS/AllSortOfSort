@@ -5,8 +5,16 @@ extends Node2D
 @onready var arrayArea:ArrayArea = $Solver/ArrayArea
 @onready var solver:Control = $Solver
 
+@onready var solveCanvas = $SortCanvas
+@onready var inputCanvas = $InputCanvas
+
 var MAX_SIZE:int = 8;
 var selectedSort:String = ""
+var solving:bool = false
+
+func _process(delta):
+	if solving : 
+		solver.solve(delta)
 
 func _on_number_select_add_number(val):
 	arrayArea.addNumber(val)
@@ -26,11 +34,23 @@ func _on_clear_pressed():
 	addNumber.disabled = false
 	fillRandom.disabled = false
 
-
 func _on_start_button_pressed():
 	print("start : "+selectedSort)
 	solver.set_script(load("res://src/script/"+selectedSort+".gd"))
-	solver.start()
+	solver.mainArray = arrayArea
+	solver.main = self
+	
+	arrayArea.setSpeed(0.5)
+	solveCanvas.hide()
+	inputCanvas.hide()
+	solving = true
+
+func done():
+	arrayArea.setSpeed(1)
+	solveCanvas.show()
+	inputCanvas.show()
+	solver.set_script(null)
+	solving = false
 
 func _on_sort_list_sort_selected(str):
 	selectedSort = str;

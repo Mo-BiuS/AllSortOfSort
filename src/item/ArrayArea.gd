@@ -19,6 +19,12 @@ func _process(delta):
 	move()
 	moveChildren()
 
+func movingDone()->bool:
+	var childDone = true;
+	for i in get_children():
+		if i is NumberBlock: childDone = childDone && i.movingDone()
+	return childDone && goalPos == global_position && goalSize == size
+
 func grow():
 	if(size.x < goalSize.x):
 		size.x += GROW_SPEED;
@@ -52,11 +58,20 @@ func moveChildren():
 		get_children()[i].goalPos.x = -15+global_position.x+(size.x-10)*i/get_child_count()+size.x/2/get_child_count()
 		get_children()[i].goalPos.y = 10+global_position.y
 
+func swap(i,j):
+	move_child(get_children()[i],j)
+
+func setSpeed(val:float):
+	for i in get_children():
+		if i is NumberBlock:
+			i.moveSpeed = val
+
 func shuffle():
 	var child = get_children()
 	child.shuffle()
 	clear()
 	for i in child:
+		i.setColor(0)
 		add_child(i)
 
 func clear():

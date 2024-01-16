@@ -1,12 +1,12 @@
 class_name NumberBlock extends ColorRect
 
 var goalPos:Vector2 = Vector2(0,0)
-var MOVE_SPEED = 1;
+var moveSpeed = 1;
 
-var WHITE = 0;
-var GREEN = 1;
-var RED = 2;
-var YELLOW = 3;
+const WHITE = 0;
+const GREEN = 1;
+const RED = 2;
+const YELLOW = 3;
 
 @onready var numberLabel:Label = $CenterContainer/numberLabel
 var val:int = 0;
@@ -14,6 +14,9 @@ var val:int = 0;
 func _process(delta):
 	numberLabel.text = str(val)	
 	move()
+
+func movingDone()->bool:
+	return goalPos == global_position
 
 func setColor(i:int):
 	match i:
@@ -30,15 +33,15 @@ func setColor(i:int):
 
 func move():
 	if(global_position.x < goalPos.x):
-		global_position.x += MOVE_SPEED;
+		global_position.x += moveSpeed;
 		if(global_position.x > goalPos.x):global_position.x = goalPos.x
 	elif(global_position.x > goalPos.x):
-		global_position.x -= MOVE_SPEED;
+		global_position.x -= moveSpeed;
 		if(global_position.x < goalPos.x):global_position.x = goalPos.x
 		
 	if(global_position.y < goalPos.y):
-		global_position.y += MOVE_SPEED;
+		global_position.y += moveSpeed;
 		if(global_position.y > goalPos.y):global_position.y = goalPos.y
 	elif(global_position.y > goalPos.y):
-		global_position.y -= MOVE_SPEED;
+		global_position.y -= moveSpeed;
 		if(global_position.y < goalPos.y):global_position.y = goalPos.y
