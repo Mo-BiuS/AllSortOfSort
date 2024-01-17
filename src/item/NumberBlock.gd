@@ -8,7 +8,8 @@ const GREEN = 1;
 const RED = 2;
 const YELLOW = 3;
 
-@onready var numberLabel:Label = $CenterContainer/numberLabel
+@onready var colorRect:ColorRect = $ColorRect
+@onready var numberLabel:Label = $ColorRect/CenterContainer/numberLabel
 var val:int = 0;
 
 func _process(delta):
@@ -18,18 +19,23 @@ func _process(delta):
 func movingDone()->bool:
 	return goalPos == global_position
 
+func select():
+	self.color = Color(0,0,0)
+func deselect():
+	self.color = Color(255,255,255)
+
 func setColor(i:int):
 	match i:
 		WHITE:
-			self.color = Color(255,255,255)
+			colorRect.color = Color(255,255,255)
 		GREEN:
-			self.color = Color(0,255,0)
+			colorRect.color = Color(0,255,0)
 		RED:
-			self.color = Color(255,0,0)
+			colorRect.color = Color(255,0,0)
 		YELLOW:
-			self.color = Color(255,255,0)
+			colorRect.color = Color(255,255,0)
 		_:
-			self.color = Color(0,0,0)
+			colorRect.color = Color(0,0,0)
 
 func move():
 	if(global_position.x < goalPos.x):

@@ -13,23 +13,34 @@ const YELLOW = 3;
 
 var pointer = 0;
 var waitTime = 0
+var sorted = true
 
 func solve(delta):
+	print(sorted)
 	if(waitTime > 0):waitTime-=delta
 	elif(mainArray.movingDone()):
 		if(pointer == 0 && mainArray.getSize() > 0):
+			mainArray.deselectAll()
 			mainArray.setColor(0,GREEN)
+			mainArray.selectAt(0)
 			pointer+=1;
 			waitTime = 0.5
 		elif(pointer < mainArray.getSize()):
+			mainArray.deselectAt(pointer-1)
+			mainArray.selectAt(pointer)
 			if(mainArray.getValue(pointer) < mainArray.getValue(pointer-1)):
-				mainArray.setColor(pointer,YELLOW)
-				mainArray.setColor(pointer-1,YELLOW)
 				mainArray.swap(pointer,pointer-1)
-				pointer-=1;
+				if(sorted):
+					mainArray.setColorAll(WHITE)
+					sorted = false
 			else:
-				mainArray.setColor(pointer,GREEN)
+				if(sorted):mainArray.setColor(pointer,GREEN)
 				pointer+=1;
 				waitTime = 0.5
 		else:
-			main.done()
+			if(sorted):
+				mainArray.deselectAll()
+				main.done()
+			else: 
+				pointer = 0
+				sorted = true

@@ -87,5 +87,18 @@ func addNumber(val:int):
 	nb.val = val
 	add_child(nb)
 	nb.global_position = Vector2(global_position.x+size.x-5-nb.size.x,10+global_position.y)
+
+#=========================================
+func setColorAll(val:int):
+	for i in get_children():i.setColor(val)
 func setColor(at:int, val:int):
 	get_children()[at].setColor(val)
+#=========================================
+func deselectAll():
+	for i in get_children():i.deselect()
+func selectAll():
+	for i in get_children():i.select()
+func deselectAt(at:int):
+	get_children()[at].deselect()
+func selectAt(at:int):
+	get_children()[at].select()
