@@ -3,9 +3,6 @@ extends Control
 var mainArray:ArrayArea
 var main
 
-var state = 0;
-const PARSE = 0;
-
 const WHITE = 0;
 const GREEN = 1;
 const RED = 2;
@@ -16,7 +13,6 @@ var waitTime = 0
 var sorted = true
 
 func solve(delta):
-	print(sorted)
 	if(waitTime > 0):waitTime-=delta
 	elif(mainArray.movingDone()):
 		if(pointer == 0 && mainArray.getSize() > 0):
