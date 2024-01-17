@@ -23,31 +23,24 @@ func solve(delta):
 		mainArray.setColor(pointer,YELLOW)
 		mainArray.setColor(pointer+1,YELLOW)
 		waitTime = 0.5
-		
+		#=====================================
 		if(direction):
 			if(mainArray.getValue(pointer) > mainArray.getValue(pointer+1)):
 				sorted = false
 				mainArray.swap(pointer,pointer+1)
-			
 			pointer+=1
-			if(pointer == mainArray.getSize()-2):
-				if(sorted):
-					mainArray.deselectAll()
-					main.done()
-				else :
-					sorted = true
-					direction = false
 		else:
 			if(mainArray.getValue(pointer) > mainArray.getValue(pointer+1)):
 				sorted = false
 				mainArray.swap(pointer,pointer+1)
-			
 			pointer-=1
-			if(pointer == 0):
-				if(sorted):
-					mainArray.deselectAll()
-					main.done()
-				else :
-					sorted = true
-					direction = true
+		#=====================================
+		if((pointer == 0 && !direction) || (pointer == mainArray.getSize()-2 && direction)):
+			if(sorted):
+				mainArray.setColorAll(GREEN)
+				mainArray.deselectAll()
+				main.done()
+			else :
+				sorted = true
+				direction = !direction
 

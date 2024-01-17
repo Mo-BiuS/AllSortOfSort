@@ -15,28 +15,24 @@ var sorted = true
 func solve(delta):
 	if(waitTime > 0):waitTime-=delta
 	elif(mainArray.movingDone()):
-		if(pointer == 0 && mainArray.getSize() > 0):
-			mainArray.deselectAll()
-			mainArray.setColor(0,GREEN)
-			mainArray.selectAt(0)
-			pointer+=1;
-			waitTime = 0.5
-		elif(pointer < mainArray.getSize()):
-			mainArray.deselectAt(pointer-1)
-			mainArray.selectAt(pointer)
-			if(mainArray.getValue(pointer) < mainArray.getValue(pointer-1)):
-				mainArray.swap(pointer,pointer-1)
-				if(sorted):
-					mainArray.setColorAll(WHITE)
-					sorted = false
-			else:
-				if(sorted):mainArray.setColor(pointer,GREEN)
-				pointer+=1;
-				waitTime = 0.5
-		else:
+		mainArray.deselectAll()
+		mainArray.setColorAll(WHITE)
+		mainArray.selectAt(pointer)
+		mainArray.selectAt(pointer+1)
+		mainArray.setColor(pointer,YELLOW)
+		mainArray.setColor(pointer+1,YELLOW)
+		waitTime = 0.5
+		#=====================================
+		if(mainArray.getValue(pointer) > mainArray.getValue(pointer+1)):
+			sorted = false
+			mainArray.swap(pointer,pointer+1)
+		pointer+=1
+		#=====================================
+		if(pointer == mainArray.getSize()-1):
 			if(sorted):
+				mainArray.setColorAll(GREEN)
 				mainArray.deselectAll()
 				main.done()
-			else: 
-				pointer = 0
+			else :
 				sorted = true
+				pointer = 0
