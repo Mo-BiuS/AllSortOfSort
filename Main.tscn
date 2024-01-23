@@ -159,6 +159,7 @@ layout_mode = 2
 script = ExtResource("1_lmwsi")
 
 [node name="Introsort" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l3a58")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
@@ -166,12 +167,14 @@ toggle_mode = true
 text = "Introsort"
 
 [node name="Smoothsort" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l3a58")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
 text = "Smoothsort"
 
 [node name="Timsort" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l3a58")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
@@ -184,12 +187,14 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
 text = "Tri à bulles"
 
 [node name="TriPeigne" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l3a58")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
 text = "Tri à peigne"
 
 [node name="TriArborescent" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l3a58")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
@@ -202,18 +207,21 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
 text = "Tri cocktail"
 
 [node name="TriShell" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l3a58")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
 text = "Tri de Shell"
 
 [node name="TriFusion" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l3a58")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
 text = "Tri fusion"
 
 [node name="TriPairImpair" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l3a58")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
@@ -232,12 +240,14 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
 text = "Tri par selection"
 
 [node name="TriTas" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l3a58")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")
 text = "Tri par tas"
 
 [node name="TriRapide" type="Button" parent="SortCanvas/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/ScrollContainer/SortList"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l3a58")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_856yr")

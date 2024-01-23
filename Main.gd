@@ -39,14 +39,12 @@ func _on_start_button_pressed():
 	solver.set_script(load("res://src/script/"+selectedSort+".gd"))
 	solver.mainArray = arrayArea
 	solver.main = self
-	
-	arrayArea.setSpeed(0.5)
+
 	solveCanvas.hide()
 	inputCanvas.hide()
 	solving = true
 
 func done():
-	arrayArea.setSpeed(1)
 	solveCanvas.show()
 	inputCanvas.show()
 	solver.set_script(null)

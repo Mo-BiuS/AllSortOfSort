@@ -94,7 +94,7 @@ func _on_sort_list_sort_selected(str:String):
 			cWorst.text = ": n^2"
 			cMem.text = ": 1"
 			stable.text = ": non"
-			startButton.implemented(false)
+			startButton.implemented(true)
 		"Tri par tas":
 			cBest.text = ": n log n"
 			cMedium.text = ": n log n"
