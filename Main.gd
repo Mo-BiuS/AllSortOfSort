@@ -8,7 +8,7 @@ extends Node2D
 @onready var solveCanvas = $SortCanvas
 @onready var inputCanvas = $InputCanvas
 
-var MAX_SIZE:int = 8;
+var MAX_SIZE:int = 12;
 var selectedSort:String = ""
 var solving:bool = false
 
@@ -18,7 +18,7 @@ func _process(delta):
 
 func _on_number_select_add_number(val):
 	arrayArea.addNumber(val)
-	if(arrayArea.getSize() >= 8):
+	if(arrayArea.getSize() >= MAX_SIZE):
 		addNumber.disabled = true
 		fillRandom.disabled = true
 

@@ -8,6 +8,8 @@ const GREEN = 1;
 const RED = 2;
 const YELLOW = 3;
 
+const WAIT_TIME = 0.5
+
 var pointer = 0;
 var waitTime = 0
 var sorted = true
@@ -21,7 +23,7 @@ func solve(delta):
 		mainArray.selectAt(pointer+1)
 		mainArray.setColor(pointer,YELLOW)
 		mainArray.setColor(pointer+1,YELLOW)
-		waitTime = 0.5
+		waitTime = WAIT_TIME
 		#=====================================
 		if(mainArray.getValue(pointer) > mainArray.getValue(pointer+1)):
 			sorted = false

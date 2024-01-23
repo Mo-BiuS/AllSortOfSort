@@ -8,6 +8,8 @@ const GREEN = 1;
 const RED = 2;
 const YELLOW = 3;
 
+const WAIT_TIME = 0.5
+
 var pointer = 0;
 var parsed = 0;
 var minValue = -100
@@ -24,7 +26,7 @@ func solve(delta):
 			mainArray.setColor(i,GREEN)
 		if(pointer < mainArray.getSize()):mainArray.setColor(pointer,YELLOW)
 		if(minPos < mainArray.getSize()):mainArray.setColor(minPos,RED)
-		waitTime = 0.05
+		waitTime = WAIT_TIME
 		
 		if(parsed < mainArray.getSize()):
 			if(pointer == parsed):

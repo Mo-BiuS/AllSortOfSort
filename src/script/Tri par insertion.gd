@@ -8,6 +8,8 @@ const GREEN = 1;
 const RED = 2;
 const YELLOW = 3;
 
+const WAIT_TIME = 0.5
+
 var pointer = 0;
 var retPointer = 0;
 var waitTime = 0
@@ -30,7 +32,7 @@ func solve(delta):
 				mainArray.setColor(retPointer,YELLOW)
 			else:
 				mainArray.setColor(pointer,GREEN)
-			waitTime = 0.5
+			waitTime = WAIT_TIME
 			
 			if(returning):
 				if(retPointer == 0):

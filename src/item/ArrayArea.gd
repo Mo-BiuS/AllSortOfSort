@@ -2,7 +2,7 @@ class_name ArrayArea extends ColorRect
 
 var Y_POS = 60
 var X_POS = 400
-var goalSize:Vector2 = Vector2(420,60)
+var goalSize:Vector2 = Vector2(580,60)
 var goalPos:Vector2 = Vector2(400,Y_POS)
 var GROW_SPEED = 1.5;
 var MOVE_SPEED = 1;
