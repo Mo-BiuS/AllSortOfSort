@@ -60,6 +60,8 @@ func moveChildren():
 
 func swap(i,j):
 	move_child(get_children()[i],j)
+func insert(i,j):
+	move_child(get_children()[i],j)
 
 func setSpeed(val:float):
 	for i in get_children():
